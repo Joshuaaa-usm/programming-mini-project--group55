@@ -1,3 +1,2 @@
 # programming-mini-project--group55
-Title : Attendence Management System
-Gambatteh !!!
+> Title : Attendence Management System
