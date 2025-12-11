@@ -41,7 +41,7 @@ void saveStudentsToFile() {
     ofstream file("data/students.txt");
 
     for (auto &s : students) {
-        file << s.id << "|" << s.name << "|" << s.program << "|Year " << s.year << "\n";
+        file << s.id << "|" << s.name << "|" << s.program << "|Year " << s.year << "|" << "\n";
     }
     file.close();
 }
@@ -86,7 +86,7 @@ void viewStudents() {
 
     cout << "\n--- Student List ---\n";
     for (auto &s : students) {
-        cout << s.id << "|" << s.name << "|" << s.program << "|Year " << s.year << endl;
+        cout << s.id << "|" << s.name << "|" << s.program << "|Year " << s.year << "|" << endl;
     }
 }
 
