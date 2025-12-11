@@ -32,10 +32,20 @@ void saveStudentsToFile() {
 }
 
 void addStudent() {
+    loadStudentsFromFile();
     Student s;
-
+    
     cout << "\nEnter Student ID: ";
     cin >> s.id;
+
+    for (auto &existing : students) {
+      if (existing.id == s.id){
+          cout << "Existing Student: " << existing.name << " (" << existing.program << ")\n";
+          return;
+      }
+    }
+}
+
     cout << "Enter Name (one-word): ";
     cin >> s.name;
     cout << "Enter Program: ";
