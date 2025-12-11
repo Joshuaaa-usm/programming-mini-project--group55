@@ -49,19 +49,9 @@ void saveStudentsToFile() {
 void addStudent() {
     loadStudentsFromFile();
     Student s;
-
+    
     cout << "\nEnter Student ID: ";
     cin >> s.id;
-
-    // Check for duplicate ID
-    for (auto &existing : students ){
-        if ( existing.id == s.id ){
-            cout << "\nERROR: This Student ID already exists!\n";
-            cout << "Existing Student: " << existing.name << " (" << existing.program << ")\n";
-            return; // stop function
-        }
-    }
-
     cout << "Enter Name (one-word): ";
     /* cin >> s.name; */
     getline( cin>>ws, s.name);
