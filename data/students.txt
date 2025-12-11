@@ -1,3 +1,2 @@
-4192 Joshua Electrical 1
-4193 John Electronic 2
-4194 JohnCena Mechatronic 4
+4192|Joshua Lim|Electrical|Year 1
+4193|John Cena|Electronic|Year 2

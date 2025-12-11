@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <sstream>
 #include "student.h"
 using namespace std;
 
@@ -15,8 +16,22 @@ void loadStudentsFromFile() {
     students.clear();
     ifstream file("data/students.txt");
 
-    Student s;
+    /* Student s;
     while (file >> s.id >> s.name >> s.program >> s.year) {
+        students.push_back(s);
+    } */
+
+    string line;
+    Student s;
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string id, name, program, year;
+
+        getline(ss, s.id, '|');
+        getline(ss, s.name, '|');
+        getline(ss, s.program, '|');
+        getline(ss, s.year, '|');
+
         students.push_back(s);
     }
     file.close();
@@ -26,18 +41,45 @@ void saveStudentsToFile() {
     ofstream file("data/students.txt");
 
     for (auto &s : students) {
-        file << s.id << " " << s.name << " " << s.program << " " << s.year << "\n";
+        file << s.id << "|" << s.name << "|" << s.program << "|Year " << s.year << "\n";
     }
     file.close();
 }
 
 void addStudent() {
+    loadStudentsFromFile();
     Student s;
 
     cout << "\nEnter Student ID: ";
     cin >> s.id;
+
+    // Check for duplicate ID
+    for (auto &existing : students ){
+        if ( existing.id == s.id ){
+            cout << "\nERROR: This Student ID already exists!\n";
+            cout << "Existing Student: " << existing.name << " (" << existing.program << ")\n";
+            return; // stop function
+        }
+    }
+
     cout << "Enter Name (one-word): ";
-    cin >> s.name;
+    /* cin >> s.name; */
+    getline( cin>>ws, s.name);
+
+    for ( auto &existing : students ) {
+        if (existing.name == s.name){
+            string option;
+            cout << "\nWarning: Another student already has this name.\n";
+            cout << "Continue anyway? (Y/N): ";
+            cin >> option;
+            if (option == "N" || option == "n" ){
+                cout << "Cancelled. Student not added.\n";
+                return;
+            }
+            break;
+        }
+    }
+
     cout << "Enter Program: ";
     cin >> s.program;
     cout << "Enter Year: ";
@@ -54,7 +96,7 @@ void viewStudents() {
 
     cout << "\n--- Student List ---\n";
     for (auto &s : students) {
-        cout << s.id << "  " << s.name << "  " << s.program << "  Year " << s.year << endl;
+        cout << s.id << "|" << s.name << "|" << s.program << "|Year " << s.year << endl;
     }
 }
 

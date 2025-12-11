@@ -9,7 +9,7 @@ struct Student {
     string id;
     string name;
     string program;
-    int year;
+    string year;
 };
 
 void loadStudentsFromFile();
