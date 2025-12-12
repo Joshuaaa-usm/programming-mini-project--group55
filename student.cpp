@@ -1,5 +1,5 @@
 /*
-   Programmers: 
+   Programmers: MUHAMMAD BIN MD ZANI
    Purpose: Handles all student-related functions.
 */
 

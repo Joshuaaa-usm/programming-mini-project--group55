@@ -1,5 +1,5 @@
  /*
-   Programmers: Group members
+   Programmers: JOSHUA LIM HOCK LIANG
    Purpose: Handles attendance functions.
 */
 
