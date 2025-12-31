@@ -1,17 +1,15 @@
 #ifndef ATTENDANCE_H
 #define ATTENDANCE_H
 
-#include <string>
-using namespace std;
+#include <vector>
+#include "Student.h"
 
-struct AttendanceRecord {
-    string date;
-    string studentID;
-    string status; // Present / Absent
-};
-
-void markAttendance();
-void viewAttendanceByDate();
-void viewStudentAttendanceSummary();
+/*
+Programmer: Group 55
+Purpose: Record management functions
+*/
+void recordAttendance(vector<Student>& students);
+void viewStudentHistory(const vector<Student>& students);
+void showLowAttendance(const vector<Student>& students);
 
 #endif

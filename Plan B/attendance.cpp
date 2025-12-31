@@ -1,100 +1,61 @@
- /*
-   Programmers: JOSHUA LIM HOCK LIANG
-   Purpose: Handles attendance functions.
-*/
-
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include <sstream>
-#include "attendance.h"
-#include "student.h"
+#include <iomanip>
+#include "Attendance.h"
 using namespace std;
 
-void markAttendance() {
-    loadStudentsFromFile();
+/*
+Programmer: Group 55
+Function: recordAttendance
+Purpose: Adds a specific date record (P/A) to a student's history
+*/
+/*
+Programmer: Group 55
+Function: recordAttendance
+Purpose: Added validation for P/A status
+*/
+void recordAttendance(vector<Student>& students) {
+    string id, date;
+    char status;
+    cout << "Enter Student ID: "; cin >> id;
 
-    string date;
-    cout << "Enter date (YYYY-MM-DD): ";
-    cin >> date;
-
-    ofstream file("data/attendance.txt", ios::app);
-
-    for (auto &s : students) {
-        string status;
-        cout << "Mark attendance for " << s.name << " (P/A): ";
-        cin >> status;
-
-        if (status == "P" || status == "p") status = "Present";
-        else status = "Absent";
-
-        // Save ID + Name + Status
-        file << date << "|" << s.id << "|" << s.name << "|" << status << "|" <<  "\n";
+    for (auto& s : students) {
+        if (s.id == id) {
+            cout << "Enter Date (DD/MM): "; cin >> date;
+            
+            // Loop until valid P or A is entered
+            while (true) {
+                cout << "Enter Status (P/A): "; cin >> status;
+                status = toupper(status);
+                if (status == 'P' || status == 'A') {
+                    s.records.push_back({date, status});
+                    cout << "Success!\n";
+                    return;
+                }
+                cout << "Invalid status! Use 'P' for Present or 'A' for Absent.\n";
+            }
+        }
     }
-    file.close();
-    cout << "Attendance recorded!\n";
+    cout << "ID not found.\n";
 }
 
-void viewAttendanceByDate() {
-    string date;
-    cout << "Enter date to view (YYYY-MM-DD): ";
-    cin >> date;
-
-    ifstream file("data/attendance.txt");
-
-    string d, id, name, status, line;
-
-    cout << "\nAttendance on " << date << ":\n";
-
-    /* // READ 4 FIELDS: date id name status
-    while (file >> d >> id >> name >> status) {
-        if (d == date) {
-            cout << id << " - " << name << " - " << status << endl;
-        }
-    } */
-
-    while (getline(file, line)) {
-        stringstream ss(line);
-        getline(ss, d, '|');
-        getline(ss, id, '|');
-        getline(ss, name, '|');
-        getline(ss, status, '|');
-
-        if (d == date) {
-            cout << id << "|" << name << "|" << status << "|" << endl;
+/*
+Programmer: Group 55
+Function: viewStudentHistory
+Purpose: Shows every date recorded for a single student
+*/
+void viewStudentHistory(const vector<Student>& students) {
+    string id;
+    cout << "Enter Student ID: "; cin >> id;
+    for (const auto& s : students) {
+        if (s.id == id) {
+            cout << "\nHistory for: " << s.name << " (" << s.id << ")\n";
+            cout << "---------------------------\n";
+            for (const auto& r : s.records) {
+                cout << "Date: " << r.date << " | Status: " << r.status << endl;
+            }
+            cout << "Total Attendance: " << fixed << setprecision(2) << s.calculatePercentage() << "%\n";
+            return;
         }
     }
-    file.close();
-}
-
-void viewStudentAttendanceSummary() {
-    string targetID;
-    cout << "Enter Student ID: ";
-    cin >> targetID;
-
-    ifstream file("data/attendance.txt");
-
-    string d, id, name, status, line;
-
-    cout << "\nAttendance summary for " << targetID << ":\n";
-
-    /* // READ 4 FIELDS
-    while (file >> d >> id >> name >> status) {
-        if (id == targetID)
-            cout << d << " - " << name << " - " << status << endl;
-    } */
-
-    while (getline(file, line)) {
-        stringstream ss(line);
-        getline(ss, d, '|');
-        getline(ss, id, '|');
-        getline(ss, name, '|');
-        getline(ss, status, '|');
-
-        if (id == targetID) {
-            cout << d << "|" << name << "|" << status << "|" << endl;
-        }
-    }
-
-    file.close();
+    cout << "Student not found.\n";
 }

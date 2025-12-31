@@ -3,23 +3,26 @@
 
 #include <string>
 #include <vector>
+
 using namespace std;
 
-struct Student {
-    string id;
-    string name;
-    string program;
-    string year;
+/*
+Programmer: Group 55
+Purpose: Define record structure and Student class with history
+*/
+struct AttendanceRecord {
+    string date;
+    char status; 
 };
 
-void loadStudentsFromFile();
-void saveStudentsToFile();
+class Student {
+public:
+    string id;
+    string name;
+    vector<AttendanceRecord> records;
 
-void addStudent();
-void viewStudents();
-void searchStudent();
-void updateStudent();
-
-extern vector<Student> students;
+    Student(string i = "", string n = "");
+    double calculatePercentage() const;
+};
 
 #endif
