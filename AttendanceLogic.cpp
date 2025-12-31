@@ -67,8 +67,9 @@ void addStudent() {
 
     Student s;
     s.id = tempID;
-    
-    cin.ignore();
+
+    cin.ignore(100, '\n');
+
     cout << "Enter Name: "; 
     getline(cin, s.name);
     s.attendanceCount = 0;
