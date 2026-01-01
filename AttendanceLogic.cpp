@@ -22,8 +22,8 @@ using namespace std;
 /* Programmer:  | Matric: 
 Purpose: Searches the student list for a specific ID and returns its position in the vector for other functions to use. */
 int findStudentIndex(string searchID) {
-    for (int i = 0; i < studentList.size(); i++) {
-        if (studentList[i].id == searchID) return i;
+    for (size_t i = 0; i < studentList.size(); i++) {
+        if (studentList[i].id == searchID) return (int)i; // The (int) cast fixes the warning
     }
     return -1;
 }

@@ -17,10 +17,16 @@
 /* Programmer:  | Matric: 
 Purpose: Displays the visual banner and title of the Student Attendance System at the top of the interface. */
 void displayHeader() {
-    cout << "\n========================================" << endl;
-    cout << "     STUDENT ATTENDANCE SYSTEM          " << endl;
-    cout << "========================================" << endl;
+    cout << "----------------------------------------------------" << endl;
+    cout << "|                                                  |" << endl;
+    cout << "|      S T U D E N T   A T T E N D A N C E         |" << endl;
+    cout << "|                 S Y S T E M                      |" << endl;
+    cout << "|                                                  |" << endl;
+    cout << "----------------------------------------------------" << endl;
+    cout << "|              Group 55 Mini Project               |" << endl;
+    cout << "----------------------------------------------------" << endl;
 }
+
 
 // Function 5: runSystem
 /* Programmer:  | Matric: 
