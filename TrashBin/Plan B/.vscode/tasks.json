@@ -3,15 +3,23 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                //"${file}",
+                /* "${workspaceFolder}/main.cpp",
+                "${workspaceFolder}/Menu.cpp",
+                "${workspaceFolder}/Student.cpp",
+                "${workspaceFolder}/Attendance.cpp",
+                "${workspaceFolder}/FileManager.cpp",
+                "${workspaceFolder}/Utils.cpp",
+                "${workspaceFolder}/Auth.cpp", */
                 "${fileDirname}\\*.cpp",
                 "-o",
-                "${fileDirname}\\main.exe",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-Wall",
-                "-Wconversion"
+                "-Wconversion",
             ],
             "options": {
                 "cwd": "${fileDirname}"

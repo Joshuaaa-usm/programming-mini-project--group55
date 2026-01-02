@@ -1,44 +1,34 @@
-
-/* Project: Attendance Management System
-   Purpose: 
-   Programmer: 
-   1. MUHAMMAD BIN MD ZANI
-   2. JOSHUA LIM HOCK LIANG
-   3. QAMIL IMRAN BIN MOHAMMAD SAID
-   4. MUHAMMAD HAIKAL BIN AHMAD 
-   5. AHMAD DZUL ALIF BIN ROSLI
-*/
-
-
 #ifndef STUDENTSYSTEM_HPP
 #define STUDENTSYSTEM_HPP
 
 #include <string>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 struct Student {
     string id;
     string name;
-    int attendanceCount;
+    int isPresent; // 0 = Absent, 1 = Present
 };
 
-// Global vector declaration (extern allows it to be used across files)
+// Global vector to hold the Master List
 extern vector<Student> studentList;
 
-//int main();                                                       // function 1
-void loadFromFile();                                                // function 2
-void saveToFile();                                                  // function 3
-void displayHeader();                                               // function 4
-void runSystem();                                                   // function 5
-int findStudentIndex(string id);                                    // function 6
-void markAttendance();                                              // function 7
-void viewReport();                                                  // function 8
-void addStudent();                                                  // function 9
-void showStatistics();                                              // function 10
-void resetAllAttendance();                                          // function 11
-void clearScreen();                                                 // function 12
-int getValidatedChoice();                                           // function 13
-bool inputWithCancel(std::string &input, std::string prompt);       // function 14
+
+// Core Functions
+void loadMasterList();                                  // Function 2: Loads students.txt
+void generateReport(string subject, string date);       // Function 3: Saves session report
+void displayHeader();                                   // Function 4: Welcoming Message
+void displayExitGreeting();
+void runSystem();                                       // Function 5: Main Menu Loop
+int findStudentIndex(string id);                        // Function 6: Search helper
+void markAttendance();                                  // Function 7: Session Controller
+void viewMasterList();                                  // Function 8: View enrolled students
+void resetStatus();                                     // New: Sets everyone to 0
+void clearScreen();                                     // Function 12: Visual spacing
+int getValidatedChoice();                               // Function 13: Input validation
+
 
 #endif

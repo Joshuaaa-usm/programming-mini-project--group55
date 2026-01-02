@@ -1,43 +1,68 @@
-
-/* Project: Attendance Management System
-   Purpose: 
-   Programmer: 
-   1. MUHAMMAD BIN MD ZANI
-   2. JOSHUA LIM HOCK LIANG
-   3. QAMIL IMRAN BIN MOHAMMAD SAID
-   4. MUHAMMAD HAIKAL BIN AHMAD 
-   5. AHMAD DZUL ALIF BIN ROSLI
-*/
-
-
 #include "StudentSystem.hpp"
 #include <fstream>
-#include <iostream>
+#include <iomanip>
+#include <cstdlib>
 
-std::vector<Student> studentList; 
+vector<Student> studentList;
 
-// Function 2: loadFromFile
-/* Programmer:  | Matric: 
-Purpose: Reads student records (ID, Name, and Attendance Count) from the external file and populates the program's memory. */
-void loadFromFile() {
-    std::ifstream file("data.txt");
-    if (!file) return;
-    
+void loadMasterList() {
+    ifstream file("students.txt"); // Master file containing ID and Name
+    if (!file.is_open()) {
+        cout << "Error: 'students.txt' not found.\n";
+        cout << "The program will now close.\n";
+        exit(1);
+    }
     studentList.clear();
     Student s;
-    while (file >> s.id >> std::ws && std::getline(file, s.name, '|') && file >> s.attendanceCount) {
+    // Format: ID Name
+    while (file >> s.id >> ws && getline(file, s.name)) {
+        s.isPresent = 0; // Everyone is absent until marked
         studentList.push_back(s);
     }
     file.close();
 }
 
-// Function 3: saveToFile
-/* Programmer: AHMAD NAJMI BIN MOHD NAIM | Matric: 24303630
-Purpose: Writes all current student data from the system back to 'data.txt' to ensure progress is saved permanently. */
-void saveToFile() {
-    std::ofstream file("data.txt");
+void generateReport(string subject, string date) {
+    ofstream file("report.txt");
+    
+    int presentCount = 0;
+    int totalStudents = (int)studentList.size();
+    
+    file << "============================================================\n";
+    file << "ATTENDANCE REPORT: " << subject << "\n";
+    file << "DATE: " << date << "\n";
+    file << "============================================================\n";
+    file << "------------------------------------------------------------\n";
+    file << left << setw(15) << "ID" << setw(30) << "Name" << "Status\n";
+    file << "------------------------------------------------------------\n";
+
+
     for (const auto& s : studentList) {
-        file << s.id << " " << s.name << " | " << s.attendanceCount << std::endl;
+        file << left << setw(15) << s.id << setw(30) << s.name;
+        if (s.isPresent == 1) {
+            file << "PRESENT   O\n";
+            presentCount++;
+        } else {
+            file << "ABSENT       X\n";
+        }
     }
+
+    file << "------------------------------------------------------------\n";
+    file << "Total Enrolled: " << totalStudents << "\n";
+    file << "Total Present:  " << presentCount << "\n";
+
+    double rate = 0;
+    if (totalStudents > 0) {
+        rate = (presentCount * 100) / (double)totalStudents;
+    }
+    file << "Attendance Rate: " << fixed << setprecision(2) << rate << " %\n";
+    file << "------------------------------------------------------------\n";
+
+
     file.close();
+    cout << "\nreport.txt generated!" << endl; // Success message
 }
+
+
+
+
