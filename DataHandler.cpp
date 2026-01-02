@@ -1,3 +1,15 @@
+
+/* Project: Attendance Management System
+   Purpose: 
+   Programmer: 
+   1. MUHAMMAD BIN MD ZANI
+   2. JOSHUA LIM HOCK LIANG
+   3. QAMIL IMRAN BIN MOHAMMAD SAID
+   4. MUHAMMAD HAIKAL BIN AHMAD 
+   5. AHMAD DZUL ALIF BIN ROSLI
+*/
+
+
 #include "StudentSystem.hpp"
 #include <fstream>
 #include <iomanip>
@@ -5,6 +17,9 @@
 
 vector<Student> studentList;
 
+// Function 1: loadMasterList
+/* Programmer:  | Matric: 
+Purpose: Opens the 'students.txt' file, reads student IDs and Names, and populates the global studentList vector. */
 void loadMasterList() {
     ifstream file("students.txt"); // Master file containing ID and Name
     if (!file.is_open()) {
@@ -22,6 +37,9 @@ void loadMasterList() {
     file.close();
 }
 
+// Function 9: generateReport
+/* Programmer:  | Matric: 
+Purpose: Creates a text file named 'report.txt' summarizing the attendance results, including the percentage rate. */
 void generateReport(string subject, string date) {
     ofstream file("report.txt");
     

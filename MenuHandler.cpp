@@ -1,33 +1,22 @@
+
+/* Project: Attendance Management System
+   Purpose: 
+   Programmer: 
+   1. MUHAMMAD BIN MD ZANI
+   2. JOSHUA LIM HOCK LIANG
+   3. QAMIL IMRAN BIN MOHAMMAD SAID
+   4. MUHAMMAD HAIKAL BIN AHMAD 
+   5. AHMAD DZUL ALIF BIN ROSLI
+*/
+
+
 #include "StudentSystem.hpp"
 #include <thread>
 #include <chrono>
 
-void displayHeader() {
-    cout << "====================================================" << endl;
-    cout << "|                                                  |" << endl;
-    cout << "|    A T T E N D A N C E   M A N A G E M E N T     |" << endl;
-    cout << "|                  S Y S T E M                     |" << endl;
-    cout << "|                                                  |" << endl;
-    cout << "====================================================" << endl;
-    cout << "|              Group 55 Mini Project               |" << endl;
-    cout << "----------------------------------------------------" << endl;
-}
-
-void clearScreen() {
-    for(int i = 0; i < 5; i++) cout << endl; // Your reliable version
-}
-
-int getValidatedChoice() {
-    int choice;
-    while (true) {
-        cout << "\nChoice: ";
-        if (cin >> choice && choice >= 1 && choice <= 4) return choice;
-        cout << "Invalid! Please enter 1-4.";
-        cin.clear();
-        cin.ignore(100, '\n');
-    }
-}
-
+// Function 2: runSystem
+/* Programmer:  | Matric: 
+Purpose: Manages the main program flow, calling different features based on user menu selection. */
 void runSystem() {
     int choice;
     do {
@@ -49,6 +38,45 @@ void runSystem() {
     displayExitGreeting();
 }
 
+// Function 3: displayHeader
+/* Programmer:  | Matric: 
+Purpose: Prints the stylized ASCII banner for the Attendance Management System. */
+void displayHeader() {
+    cout << "====================================================" << endl;
+    cout << "|                                                  |" << endl;
+    cout << "|    A T T E N D A N C E   M A N A G E M E N T     |" << endl;
+    cout << "|                  S Y S T E M                     |" << endl;
+    cout << "|                                                  |" << endl;
+    cout << "====================================================" << endl;
+    cout << "|              Group 55 Mini Project               |" << endl;
+    cout << "----------------------------------------------------" << endl;
+}
+
+// Function 4: getValidatedChoice
+/* Programmer:  | Matric: 
+Purpose: Ensures user input for menu selection is an integer within the valid range (1-4). */
+int getValidatedChoice() {
+    int choice;
+    while (true) {
+        cout << "\nChoice: ";
+        if (cin >> choice && choice >= 1 && choice <= 4) return choice;
+        cout << "Invalid! Please enter 1-4.";
+        cin.clear();
+        cin.ignore(100, '\n');
+    }
+}
+
+
+// Function 10: clearScreen
+/* Programmer:  | Matric: 
+Purpose: Provides visual spacing by printing multiple new lines to clear the console view. */
+void clearScreen() {
+    for(int i = 0; i < 5; i++) cout << endl; // Your reliable version
+}
+
+// Function 11: displayExitGreeting
+/* Programmer:  | Matric: 
+Purpose: Displays a thank you message and pauses the program for 3 seconds before closing. */
 void displayExitGreeting() {
     clearScreen();
     cout << "====================================================" << endl;

@@ -1,19 +1,22 @@
+
+/* Project: Attendance Management System
+   Purpose: 
+   Programmer: 
+   1. MUHAMMAD BIN MD ZANI
+   2. JOSHUA LIM HOCK LIANG
+   3. QAMIL IMRAN BIN MOHAMMAD SAID
+   4. MUHAMMAD HAIKAL BIN AHMAD 
+   5. AHMAD DZUL ALIF BIN ROSLI
+*/
+
 #include "StudentSystem.hpp"
 #include <iostream>
 #include <iomanip>
 
-void resetStatus() {
-    for (auto& s : studentList) s.isPresent = 0; // Wipe memory for new class
-    cout << "All records reset.\n" ;
-}
 
-int findStudentIndex(string searchID) {
-    for (int i = 0; i < (int)studentList.size(); i++) {
-        if (studentList[i].id == searchID) return i;
-    }
-    return -1;
-}
-
+// Function 5: markAttendance
+/* Programmer:  | Matric: 
+Purpose: Initiates the interactive session to input student IDs and update their presence in the system. */
 void markAttendance() {
     string subject, date, searchID;
     
@@ -45,8 +48,19 @@ void markAttendance() {
     clearScreen();
 }
 
+// Function 6: findStudentIndex
+/* Programmer:  | Matric: 
+Purpose: Searches the student list for a specific ID and returns its position in the vector for other functions to use. */
+int findStudentIndex(string searchID) {
+    for (int i = 0; i < (int)studentList.size(); i++) {
+        if (studentList[i].id == searchID) return i;
+    }
+    return -1;
+}
 
-
+// Function 7: viewMasterList
+/* Programmer:  | Matric: 
+Purpose: Displays the current list of all enrolled students from the database in a table format. */
 void viewMasterList() {
     clearScreen();
     cout << "==============================================\n";
@@ -60,4 +74,12 @@ void viewMasterList() {
     }
     cout << "----------------------------------------------\n";
     clearScreen();
+}
+
+// Function 8: resetStatus
+/* Programmer:  | Matric: 
+Purpose: Resets the attendance status of every student in the list to 'Absent' (0). */
+void resetStatus() {
+    for (auto& s : studentList) s.isPresent = 0; // Wipe memory for new class
+    cout << "All records reset.\n" ;
 }
