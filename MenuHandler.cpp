@@ -58,14 +58,20 @@ Purpose: Ensures user input for menu selection is an integer within the valid ra
 int getValidatedChoice() {
     int choice;
     while (true) {
-        cout << "\nChoice: ";
-        if (cin >> choice && choice >= 1 && choice <= 4) return choice;
-        cout << "Invalid! Please enter 1-4.";
-        cin.clear();
-        cin.ignore(100, '\n');
+        cout << "Choice: ";
+        if (cin >> choice) {
+            if (choice >= 1 && choice <= 6) {
+                return choice; 
+            } else {
+                cout << "Invalid range! Please input a number between 1 and 6 only." << endl;
+            }
+        } else {
+            cout << "Invalid type! Please input numbers only." << endl;
+            cin.clear(); // Reset the error flag
+            cin.ignore(100, '\n'); // Clear the buffer
+        }
     }
 }
-
 
 // Function 10: clearScreen
 /* Programmer:  | Matric: 

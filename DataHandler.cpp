@@ -14,6 +14,8 @@
 #include <fstream>
 #include <iomanip>
 #include <cstdlib>
+#include <thread>
+#include <chrono>
 
 vector<Student> studentList;
 
@@ -25,6 +27,7 @@ void loadMasterList() {
     if (!file.is_open()) {
         cout << "Error: 'students.txt' not found.\n";
         cout << "The program will now close.\n";
+        this_thread::sleep_for(chrono::seconds(3));
         exit(1);
     }
     studentList.clear();

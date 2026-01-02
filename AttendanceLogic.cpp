@@ -23,7 +23,7 @@ void markAttendance() {
     clearScreen();
     resetStatus();
     cout << "Enter Subject Name: ";
-    cin.ignore();
+    cin.ignore(100, '\n');
     getline(cin, subject);
     cout << "Enter Date (dd.mm.yyyy): ";
     cin >> date;
