@@ -2,10 +2,10 @@
 /* Project: Attendance Management System
    Purpose: 
    Programmer: 
-   1. MUHAMMAD BIN MD ZANI
-   2. JOSHUA LIM HOCK LIANG
-   3. QAMIL IMRAN BIN MOHAMMAD SAID
-   4. MUHAMMAD HAIKAL BIN AHMAD 
+   1. MUHAMMAD BIN MD ZANI              24304145
+   2. JOSHUA LIM HOCK LIANG             24304192
+   3. QAMIL IMRAN BIN MOHAMMAD SAID     24300997
+   4. MUHAMMAD HAIKAL BIN AHMAD         162031
    5. AHMAD DZUL ALIF BIN ROSLI
 */
 
@@ -15,7 +15,7 @@
 #include <chrono>
 
 // Function 2: runSystem
-/* Programmer:  | Matric: 
+/* Programmer: JOSHUA LIM HOCK LIANG  | Matric: 24304192 
 Purpose: Manages the main program flow, calling different features based on user menu selection. */
 void runSystem() {
     int choice;
@@ -39,7 +39,7 @@ void runSystem() {
 }
 
 // Function 3: displayHeader
-/* Programmer:  | Matric: 
+/* Programmer: QAMIL IMRAN BIN MOHAMMAD SAID | Matric: 24300997
 Purpose: Prints the stylized ASCII banner for the Attendance Management System. */
 void displayHeader() {
     cout << "====================================================" << endl;
@@ -53,7 +53,7 @@ void displayHeader() {
 }
 
 // Function 4: getValidatedChoice
-/* Programmer:  | Matric: 
+/* Programmer: MUHAMMAD HAIKAL BIN AHMAD HUSAIRI | Matric: 162031
 Purpose: Ensures user input for menu selection is an integer within the valid range (1-4). */
 int getValidatedChoice() {
     int choice;
@@ -74,14 +74,15 @@ int getValidatedChoice() {
 }
 
 // Function 10: clearScreen
-/* Programmer:  | Matric: 
+/* Programmer: MUHAMMAD BIN MD ZANI | Matric: 24304145
 Purpose: Provides visual spacing by printing multiple new lines to clear the console view. */
 void clearScreen() {
-    for(int i = 0; i < 5; i++) cout << endl; // Your reliable version
+    for(int i = 0; i < 5; i++) 
+        cout << endl; // display new line 5 times
 }
 
 // Function 11: displayExitGreeting
-/* Programmer:  | Matric: 
+/* Programmer: MUHAMMAD BIN MD ZANI | Matric: 24304145
 Purpose: Displays a thank you message and pauses the program for 3 seconds before closing. */
 void displayExitGreeting() {
     clearScreen();

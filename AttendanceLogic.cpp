@@ -2,12 +2,13 @@
 /* Project: Attendance Management System
    Purpose: 
    Programmer: 
-   1. MUHAMMAD BIN MD ZANI
-   2. JOSHUA LIM HOCK LIANG
-   3. QAMIL IMRAN BIN MOHAMMAD SAID
-   4. MUHAMMAD HAIKAL BIN AHMAD 
+   1. MUHAMMAD BIN MD ZANI              24304145
+   2. JOSHUA LIM HOCK LIANG             24304192
+   3. QAMIL IMRAN BIN MOHAMMAD SAID     24300997
+   4. MUHAMMAD HAIKAL BIN AHMAD         162031
    5. AHMAD DZUL ALIF BIN ROSLI
 */
+
 
 #include "StudentSystem.hpp"
 #include <iostream>
@@ -15,7 +16,7 @@
 
 
 // Function 5: markAttendance
-/* Programmer:  | Matric: 
+/* Programmer: MUHAMMAD HAIKAL BIN AHMAD HUSAIRI | Matric: 162031
 Purpose: Initiates the interactive session to input student IDs and update their presence in the system. */
 void markAttendance() {
     string subject, date, searchID;
@@ -49,7 +50,7 @@ void markAttendance() {
 }
 
 // Function 6: findStudentIndex
-/* Programmer:  | Matric: 
+/* Programmer: QAMIL IMRAN BIN MOHAMMAD SAID | Matric: 24300997
 Purpose: Searches the student list for a specific ID and returns its position in the vector for other functions to use. */
 int findStudentIndex(string searchID) {
     for (int i = 0; i < (int)studentList.size(); i++) {

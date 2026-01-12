@@ -2,10 +2,10 @@
 /* Project: Attendance Management System
    Purpose: 
    Programmer: 
-   1. MUHAMMAD BIN MD ZANI
-   2. JOSHUA LIM HOCK LIANG
-   3. QAMIL IMRAN BIN MOHAMMAD SAID
-   4. MUHAMMAD HAIKAL BIN AHMAD 
+   1. MUHAMMAD BIN MD ZANI              24304145
+   2. JOSHUA LIM HOCK LIANG             24304192
+   3. QAMIL IMRAN BIN MOHAMMAD SAID     24300997
+   4. MUHAMMAD HAIKAL BIN AHMAD         162031
    5. AHMAD DZUL ALIF BIN ROSLI
 */
 
@@ -20,11 +20,11 @@
 vector<Student> studentList;
 
 // Function 1: loadMasterList
-/* Programmer:  | Matric: 
+/* Programmer: JOSHUA LIM HOCK LIANG  | Matric: 24304192 
 Purpose: Opens the 'students.txt' file, reads student IDs and Names, and populates the global studentList vector. */
 void loadMasterList() {
     ifstream file("students.txt"); // Master file containing ID and Name
-    if (!file.is_open()) {
+    if (!file.is_open()) {          // if the file not exist
         cout << "Error: 'students.txt' not found.\n";
         cout << "The program will now close.\n";
         this_thread::sleep_for(chrono::seconds(3));
@@ -41,7 +41,7 @@ void loadMasterList() {
 }
 
 // Function 9: generateReport
-/* Programmer:  | Matric: 
+/* Programmer: JOSHUA LIM HOCK LIANG  | Matric: 24304192 
 Purpose: Creates a text file named 'report.txt' summarizing the attendance results, including the percentage rate. */
 void generateReport(string subject, string date) {
     ofstream file("report.txt");
@@ -74,7 +74,7 @@ void generateReport(string subject, string date) {
 
     double rate = 0;
     if (totalStudents > 0) {
-        rate = (presentCount * 100) / (double)totalStudents;
+        rate = (presentCount / (double)totalStudents) * 100;
     }
     file << "Attendance Rate: " << fixed << setprecision(2) << rate << " %\n";
     file << "------------------------------------------------------------\n";
