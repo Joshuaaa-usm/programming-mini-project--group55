@@ -1,6 +1,6 @@
 
 /* Project: Attendance Management System
-   Purpose: 
+   Purpose: To record, manage, and store student attendance data efficiently.
    Programmer: 
    1. MUHAMMAD BIN MD ZANI              24304145
    2. JOSHUA LIM HOCK LIANG             24304192

@@ -1,6 +1,6 @@
 
 /* Project: Attendance Management System
-   Purpose: 
+   Purpose: To record, manage, and store student attendance data efficiently.
    Programmer: 
    1. MUHAMMAD BIN MD ZANI              24304145
    2. JOSHUA LIM HOCK LIANG             24304192
@@ -60,7 +60,7 @@ int findStudentIndex(string searchID) {
 }
 
 // Function 7: viewMasterList
-/* Programmer:  | Matric: 
+/* Programmer: AHMAD DZUL ALIF BIN ROSLI | Matric: 24303428
 Purpose: Displays the current list of all enrolled students from the database in a table format. */
 void viewMasterList() {
     clearScreen();
@@ -78,7 +78,7 @@ void viewMasterList() {
 }
 
 // Function 8: resetStatus
-/* Programmer:  | Matric: 
+/* Programmer: AHMAD DZUL ALIF BIN ROSLI | Matric: 24303428
 Purpose: Resets the attendance status of every student in the list to 'Absent' (0). */
 void resetStatus() {
     for (auto& s : studentList) s.isPresent = 0; // Wipe memory for new class
