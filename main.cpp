@@ -1,12 +1,12 @@
 
 /* Project: Attendance Management System
-   Purpose: 
+   Purpose: To record, manage, and store student attendance data efficiently.
    Programmer: 
-   1. MUHAMMAD BIN MD ZANI
-   2. JOSHUA LIM HOCK LIANG
-   3. QAMIL IMRAN BIN MOHAMMAD SAID
-   4. MUHAMMAD HAIKAL BIN AHMAD 
-   5. AHMAD DZUL ALIF BIN ROSLI
+   1. MUHAMMAD BIN MD ZANI              24304145
+   2. JOSHUA LIM HOCK LIANG             24304192
+   3. QAMIL IMRAN BIN MOHAMMAD SAID     24300997
+   4. MUHAMMAD HAIKAL BIN AHMAD         162031
+   5. AHMAD DZUL ALIF BIN ROSLI         24303428
 */
 
 
