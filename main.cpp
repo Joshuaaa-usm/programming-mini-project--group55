@@ -13,7 +13,7 @@
 #include "StudentSystem.hpp"
 
 // Function 12: main
-/* Programmer:  | Matric: 
+/* Programmer: AHMAD DZUL ALIF BIN ROSLI | Matric: 24303428
 Purpose: Serves as the entry point of the application, initializing the data and starting the menu loop. */
 int main() {
     loadMasterList(); // Load fixed student data
